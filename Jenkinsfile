@@ -1,10 +1,13 @@
 #!groovy
 
 pipeline {
+    agent {
+        label "master"
+    }
     stages {
         stage('Run tests') {
             when {
-                branch 'main'
+                branch 'master'
             }
             steps {
                 container('maven') {
