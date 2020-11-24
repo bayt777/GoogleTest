@@ -3,7 +3,8 @@ pipeline {
     agent any
 
     stages {
-        steps {
+        stage('Test') {
+             steps{
                 bat "git checkout master"
                 bat "git config --global credential.helper store"
                 bat "jx step git credentials"
