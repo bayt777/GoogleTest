@@ -4,8 +4,10 @@ pipeline {
 
     stages {
         steps {
-            withMaven(maven : 'apache-maven-3.6.1') {
-                bat'mvn clean compile'
+                bat "git checkout master"
+                bat "git config --global credential.helper store"
+                bat "jx step git credentials"
+                bat 'mvn clean compile'
             }
         }
     }
